@@ -32,6 +32,4 @@ jobs:
         with:
           name: bin
           path: |
-            .pio/build/esp32-s3-devkitc-1/bootloader.bin
-            .pio/build/esp32-s3-devkitc-1/firmware.bin
-            .pio/build/esp32-s3-devkitc-1/littlefs.bin
+            .pio/build/esp32-s3-devkitc-1/*.bin
