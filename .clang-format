@@ -1,0 +1,14 @@
+Language: Cpp # 语言
+BasedOnStyle: Google # 格式风格
+IndentWidth: 4 # 缩进宽度
+AlignAfterOpenBracket: BlockIndent # 左大括号后是否换行
+BinPackArguments: false # false: 函数实参要么都在同一行，要么都各自一行
+BinPackParameters: false # false: 函数形参要么都在同一行，要么都各自一行
+AlignTrailingComments: true # 对齐连续的尾随的注释
+ColumnLimit: 100 # 一行字符上限
+AllowShortBlocksOnASingleLine: Empty # false: 不允许单行代码块, Empty: 允许空的代码块
+AllowShortFunctionsOnASingleLine: Empty # None: 不允许单行函数, Empty: 允许空的函数
+SeparateDefinitionBlocks: Always # Always: 函数定义与声明分开
+IncludeBlocks: Merge # Merge: 合并#include
+# AllowShortLambdasOnASingleLine: Empty    # 允许空的 lambda 在同一行
+# AllowEmptyBlocksOnASingleLine: true      # 允许空的代码块在同一行
