@@ -4,7 +4,7 @@
 #include <HWCDC.h>
 #include <time.h>
 #include <ButtonController.hpp>
-#include <DNSServer.hpp>
+// #include <DNSServer.hpp>
 #include <LedPresetManager.hpp>
 #include <LittleFSController.hpp>
 #include <MdnsController.hpp>
