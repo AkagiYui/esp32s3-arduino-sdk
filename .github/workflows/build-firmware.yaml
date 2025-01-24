@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     steps:
       - uses: actions/checkout@v4
@@ -32,6 +32,6 @@ jobs:
         with:
           name: bin
           path: |
-            .pio\build\esp32-s3-devkitc-1\bootloader.bin
-            .pio\build\esp32-s3-devkitc-1\firmware.bin
-            .pio\build\esp32-s3-devkitc-1\littlefs.bin
+            ~/.platformio/build/esp32-s3-devkitc-1/bootloader.bin
+            ~/.platformio/build/esp32-s3-devkitc-1/firmware.bin
+            ~/.platformio/build/esp32-s3-devkitc-1/littlefs.bin
