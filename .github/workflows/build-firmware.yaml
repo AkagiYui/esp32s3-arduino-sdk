@@ -32,6 +32,6 @@ jobs:
         with:
           name: bin
           path: |
-            ~/.platformio/build/esp32-s3-devkitc-1/bootloader.bin
-            ~/.platformio/build/esp32-s3-devkitc-1/firmware.bin
-            ~/.platformio/build/esp32-s3-devkitc-1/littlefs.bin
+            .pio/build/esp32-s3-devkitc-1/bootloader.bin
+            .pio/build/esp32-s3-devkitc-1/firmware.bin
+            .pio/build/esp32-s3-devkitc-1/littlefs.bin
