@@ -10,10 +10,20 @@ def modify_platformio_mirror(new_content):
     Args:
         new_content: 要替换的新内容（不包含中括号）
     """
+    mirror_config = f'__registry_mirror_hosts__ = ["{new_content}"]'
+    check_config = f'__check_internet_hosts__ = ["{new_content}"]'
+
+    # 临时测试用
+    t1 = '/opt/hostedtoolcache/Python/3.11.11/x64/lib/python3.11/site-packages/platformio/__init__.py'
+    t2 = Path(t1).read_text()
+    t2.replace(f'\n__registry_mirror_hosts__ = [${new_content}]\n__check_internet_hosts__ = [${new_content}]\n', '')
+    Path(t1).write_text(t2)
+
     output = subprocess.check_output(['pio', 'system', 'info', '--json-output'], encoding='utf-8')
     info = json.loads(output)
     print(json.dumps(info, indent=4))
 
+    # 获取 platformio 的安装路径
     python_path = Path(info['python_exe']['value'])
     print(f'Python path: {python_path}')
     penv_path = python_path.parent.parent
@@ -31,8 +41,7 @@ def modify_platformio_mirror(new_content):
     with open(init_path, 'r') as f:
         content = f.read()
 
-    mirror_config = f'__registry_mirror_hosts__ = [{new_content}]'
-    check_config = f'__check_internet_hosts__ = [{new_content}]'
+    
     content = content + '\n' + mirror_config + '\n' + check_config + '\n'
 
     with open(init_path, 'w') as f:
