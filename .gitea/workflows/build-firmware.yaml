@@ -27,8 +27,8 @@ jobs:
       - name: Install PlatformIO Core
         run: |
           pip install -i https://pypi.registry.akagiyui.com/root/pypi/+simple --upgrade platformio
-          pio system info
           python3 ./modify_pio_registry_mirror.py pio.registry.akagiyui.com
+          pio system info
           # bash <(curl -sSL https://linuxmirrors.cn/main.sh) \
           #   --source mirrors.ustc.edu.cn \
           #   --protocol http \
