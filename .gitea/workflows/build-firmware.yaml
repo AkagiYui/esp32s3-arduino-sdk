@@ -28,20 +28,20 @@ jobs:
         run: |
           pip install -i https://pypi.registry.akagiyui.com/root/pypi/+simple --upgrade platformio
           pio system info
-          ##python3 ./replace_pio_registry_mirror.py
-          bash <(curl -sSL https://linuxmirrors.cn/main.sh) \
-            --source mirrors.ustc.edu.cn \
-            --protocol http \
-            --use-intranet-source false \
-            --install-epel false \
-            --backup true \
-            --upgrade-software false \
-            --clean-cache false \
-            --ignore-backup-tips
-          apt update
-          apt install -y tree
-          tree /root/.platformio
-          tree /opt/hostedtoolcache/Python/3.11.11/x64
+          python3 ./replace_pio_registry_mirror.py pio.registry.akagiyui.com
+          # bash <(curl -sSL https://linuxmirrors.cn/main.sh) \
+          #   --source mirrors.ustc.edu.cn \
+          #   --protocol http \
+          #   --use-intranet-source false \
+          #   --install-epel false \
+          #   --backup true \
+          #   --upgrade-software false \
+          #   --clean-cache false \
+          #   --ignore-backup-tips
+          # apt update
+          # apt install -y tree
+          # tree /root/.platformio
+          # tree /opt/hostedtoolcache/Python/3.11.11/x64
 
       - name: Build PlatformIO Project
         run: |
