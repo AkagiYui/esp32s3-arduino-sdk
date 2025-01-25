@@ -31,8 +31,8 @@ def modify_platformio_mirror(new_content):
     with open(init_path, 'r') as f:
         content = f.read()
 
-    mirror_config = f'__registry_mirror_hosts__ = [${new_content}]'
-    check_config = f'__check_internet_hosts__ = [${new_content}]'
+    mirror_config = f'__registry_mirror_hosts__ = [{new_content}]'
+    check_config = f'__check_internet_hosts__ = [{new_content}]'
     content = content + '\n' + mirror_config + '\n' + check_config + '\n'
 
     with open(init_path, 'w') as f:
