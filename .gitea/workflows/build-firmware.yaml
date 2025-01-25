@@ -7,28 +7,35 @@ jobs:
     runs-on: ubuntu-24.04
 
     steps:
-      - uses: https://git.akagiyui.com/actions/checkout@v4
+      - name: Checkout Repository
+        uses: https://git.akagiyui.com/actions/checkout@v4
 
-      - uses: https://git.akagiyui.com/actions/cache@v4
+      - name: Cache PlatformIO and Pip Cache
+        uses: https://git.akagiyui.com/actions/cache@v4
         with:
           path: |
             ~/.cache/pip
             ~/.platformio/.cache
           key: ${{ runner.os }}-pio
 
-      - uses: https://git.akagiyui.com/actions/setup-python@v5
+      - name: Setup Python
+        uses: https://git.akagiyui.com/actions/setup-python@v5
         with:
           python-version: "3.11"
 
       - name: Install PlatformIO Core
-        run: pip install -i https://pypi.registry.akagiyui.com/root/pypi/+simple --upgrade platformio
+        run: |
+          pip install -i https://pypi.registry.akagiyui.com/root/pypi/+simple --upgrade platformio
+          pio system info
+          #python3 ./replace_pio_registry_mirror.py
 
       - name: Build PlatformIO Project
         run: |
           pio run
           pio run --target buildfs
 
-      - uses: https://git.akagiyui.com/actions/gitea-upload-artifact@v4
+      - name: Upload Firmware Binaries
+        uses: https://git.akagiyui.com/actions/gitea-upload-artifact@v4
         with:
           name: bin
           path: |
