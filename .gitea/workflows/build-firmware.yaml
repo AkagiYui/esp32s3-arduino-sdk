@@ -37,7 +37,7 @@ jobs:
             --backup true \
             --upgrade-software false \
             --clean-cache false \
-            --ignore-backup-tips false
+            --ignore-backup-tips
           apt update
           apt install -y tree
           tree /root/.platformio
