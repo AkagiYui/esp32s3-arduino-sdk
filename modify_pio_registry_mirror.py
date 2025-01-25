@@ -16,7 +16,7 @@ def modify_platformio_mirror(new_content):
     # 临时测试用
     t1 = '/opt/hostedtoolcache/Python/3.11.11/x64/lib/python3.11/site-packages/platformio/__init__.py'
     t2 = Path(t1).read_text()
-    t2.replace(f'\n__registry_mirror_hosts__ = [${new_content}]\n__check_internet_hosts__ = [${new_content}]\n', '')
+    t2 = t2.replace(f'\n__registry_mirror_hosts__ = [${new_content}]\n__check_internet_hosts__ = [${new_content}]\n', '')
     Path(t1).write_text(t2)
 
     output = subprocess.check_output(['pio', 'system', 'info', '--json-output'], encoding='utf-8')
