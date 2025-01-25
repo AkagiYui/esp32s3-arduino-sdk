@@ -10,14 +10,14 @@ jobs:
       - name: Checkout Repository
         uses: https://git.akagiyui.com/actions/checkout@v4
 
-      - name: Cache PlatformIO and Pip Cache
-        uses: https://git.akagiyui.com/actions/cache@v4
-        with:
-          path: |
-            ~/.cache/pip
-            ~/.platformio/.cache
-            ~/.platformio/packages
-          key: ${{ runner.os }}-pio
+      # - name: Cache PlatformIO and Pip Cache
+      #   uses: https://git.akagiyui.com/actions/cache@v4
+      #   with:
+      #     path: |
+      #       ~/.cache/pip
+      #       ~/.platformio/.cache
+      #       ~/.platformio/packages
+      #     key: ${{ runner.os }}-pio
 
       - name: Setup Python
         uses: https://git.akagiyui.com/actions/setup-python@v5
