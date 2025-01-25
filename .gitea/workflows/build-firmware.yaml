@@ -29,6 +29,8 @@ jobs:
           pip install -i https://pypi.registry.akagiyui.com/root/pypi/+simple --upgrade platformio
           pio system info
           ##python3 ./replace_pio_registry_mirror.py
+          tree /root/.platformio
+          tree /opt/hostedtoolcache/Python/3.11.11/x64
 
       - name: Build PlatformIO Project
         run: |
